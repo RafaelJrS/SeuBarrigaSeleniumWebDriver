@@ -1,7 +1,5 @@
 package br.ce.wcaquino.pages;
 
-import org.openqa.selenium.By;
-
 import br.ce.wcaquino.core.BasePage;
 import br.ce.wcaquino.core.DriverFactory;
 
@@ -20,7 +18,13 @@ public class LoginPage extends BasePage {
 	}
 	
 	public void entrar() {
-		clicarBotao(By.xpath("//button[.='Entrar']"));		
+		clicarBotaoPorTexto("Entrar");	
+	}
+	
+	public void logar(String email, String senha) {
+		setEmail(email);
+		setSenha(senha);
+		entrar();
 	}
 
 }
