@@ -13,13 +13,25 @@ public class ContaTeste extends BaseTest {
 	ContasPage contasPage = new ContasPage();
 	
 	@Test
-	public void test() {
+	public void testInserirConta() {
 		menuPage.acessarTelaInserirConta();
 		
 		contasPage.setNome("Conta Teste");
 		contasPage.salvar();
 		
 		Assert.assertEquals("Conta adicionada com sucesso!", contasPage.obterMensagemSucesso());
+	}
+	
+	@Test
+	public void testAlterarConta() {
+		menuPage.acessarTelaListaConta();
+		
+		contasPage.clicarAlterarConta("Conta Teste");
+		contasPage.setNome("Conta Teste Alterada");
+		contasPage.salvar();
+		
+		Assert.assertEquals("Conta alterada com sucesso!", contasPage.obterMensagemSucesso());
+	
 	}
 	
 
