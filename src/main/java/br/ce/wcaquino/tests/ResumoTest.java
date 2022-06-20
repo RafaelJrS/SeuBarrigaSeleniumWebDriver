@@ -1,5 +1,7 @@
 package br.ce.wcaquino.tests;
 
+import static br.ce.wcaquino.core.DriverFactory.getDriver;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,5 +21,11 @@ public class ResumoTest extends BaseTest {
 		
 		Assert.assertEquals("Movimentação removida com sucesso!",
 				resumoPage.obterMensagemSucesso());
+	}
+	
+	@Test
+	public void testResumoMensal() {
+		menuPage.acessarTelaResumo();
+		Assert.assertEquals("Seu Barriga - Extrato", getDriver().getTitle());
 	}
 }
